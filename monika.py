@@ -4,7 +4,7 @@ import seaborn as sb
 import matplotlib.pyplot as plt
 
 # GitHub raw URL for the dataset (replace with your own URL)
-url = "https://raw.githubusercontent.com/username/repository/branch/path/to/mutual_funds_india.csv"
+url = "https://github.com/monikalokhande/mutual_fund_analysis/blob/main/mutual_funds_india.csv"
 
 # Load the data from the GitHub URL
 df = pd.read_csv(url)
