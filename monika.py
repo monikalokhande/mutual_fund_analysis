@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import os
 
 # Load the dataset (make sure to provide the correct path)
-dataset_path = "../Datasets/mutual_funds_india.csv"
+dataset_path = "mutual_funds_india.csv"
 
 # Check if the file exists
 if not os.path.exists(dataset_path):
