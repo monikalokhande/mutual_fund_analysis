@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 url = "https://raw.githubusercontent.com/username/repository/branch/path/to/mutual_funds_india.csv"
 
 # Load the data from the GitHub URL
-df = pd.read_csv("mutual_fund_india.csv")
+df = pd.read_csv("mutual_funds_india.csv")
 df.columns = df.columns.str.replace(" ", "")
 
 # Streamlit sidebar for category input
