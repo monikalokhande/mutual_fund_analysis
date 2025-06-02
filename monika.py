@@ -1,15 +1,15 @@
-import pandas as pd
 import streamlit as st
+import pandas as pd
 import seaborn as sb
 import matplotlib.pyplot as plt
 
 # GitHub raw URL for the dataset (replace with your own URL)
 url = "https://raw.githubusercontent.com/username/repository/branch/path/to/mutual_funds_india.csv"
 
-# Try reading the CSV with error handling and debug output
+# Try reading the CSV with error handling and different options
 try:
-    # Test reading the file
-    df = pd.read_csv(url, encoding='ISO-8859-1', on_bad_lines='skip')  # Skip bad lines
+    # Test reading with a common delimiter (comma), encoding, and skip bad lines
+    df = pd.read_csv(url, encoding='ISO-8859-1', sep=',', on_bad_lines='skip')  # Skip bad lines
     st.write("CSV Loaded successfully!")
 
     # Clean column names (remove spaces)
