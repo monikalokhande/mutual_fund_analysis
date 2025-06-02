@@ -1,0 +1,32 @@
+import streamlit as st
+import pandas as pd
+import seaborn as sb
+import matplotlib.pyplot as plt
+
+# Load the data
+df = pd.read_csv("../Datasets/mutual_funds_india.csv")
+df.columns = df.columns.str.replace(" ", "")
+
+# Streamlit sidebar for category input
+st.sidebar.header("User Input")
+category = st.sidebar.selectbox("Select Category", df.category.unique())
+
+# Filter the data based on the category
+filtered_data = df[df.category == category]
+
+# Streamlit sidebar for AMC selection
+amc_name = st.sidebar.selectbox("Select AMC Name", filtered_data.AMC_name.unique())
+
+# Filter data based on AMC Name
+amc_filtered_data = filtered_data[filtered_data.AMC_name == amc_name]
+
+# Show a table of selected Mutual Funds
+st.write(f"### Mutual Funds under {category} and {amc_name}")
+st.dataframe(amc_filtered_data[['MutualFundName', 'return_1yr']])
+
+# Plot the data
+st.write(f"### 1-Year Return for Mutual Funds in {amc_name}")
+plt.figure(figsize=[12, 6])
+sb.barplot(x=amc_filtered_data.MutualFundName, y=amc_filtered_data.return_1yr, palette='ocean')
+plt.xticks(rotation=90)
+st.pyplot(plt)
